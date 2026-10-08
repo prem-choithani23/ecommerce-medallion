@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# Airflow runtime state (local, regenerated)
+airflow_home/logs/
+airflow_home/*.db
+airflow_home/*.pid
+airflow_home/*.log
+airflow_home/*.out
+airflow_home/*.err
+
+# Airflow config contains fernet_key, secret_key and DB connection strings
+airflow_home/airflow.cfg
+airflow_home/webserver_config.py
+
+# Environment / secrets
+.env
