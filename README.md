@@ -356,7 +356,7 @@ The source data is synthetic: conversion, abandonment and payment-success rates 
 
 ## 👤 Author
 
-**`<your-name>`** · [GitHub](https://github.com/<your-username>) · [LinkedIn](https://www.linkedin.com/in/<your-handle>)
+**`Prem Choithani`** · [GitHub](https://github.com/prem-choithani23) · [LinkedIn](https://www.linkedin.com/in/prem-choithani-937a27340)
 
 <!-- Add a screenshot of the Airflow Grid view here for extra polish:
 ![master_pipeline Grid view](docs/images/master_pipeline.png)
