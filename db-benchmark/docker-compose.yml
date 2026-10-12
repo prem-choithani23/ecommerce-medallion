@@ -1,0 +1,33 @@
+services:
+  timescaledb:
+    image: timescale/timescaledb:latest-pg16
+    container_name: bench_timescale
+    environment:
+      POSTGRES_PASSWORD: bench
+    ports:
+      - "5433:5432"
+    volumes:
+      - tsdata:/var/lib/postgresql/data
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:latest
+    container_name: bench_clickhouse
+    environment:
+      CLICKHOUSE_DB: bench
+      CLICKHOUSE_USER: bench
+      CLICKHOUSE_PASSWORD: bench
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: 1
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    volumes:
+      - chdata:/var/lib/clickhouse
+
+volumes:
+  tsdata:
+  chdata:
+
