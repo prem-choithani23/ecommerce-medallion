@@ -2,7 +2,7 @@
 
 Run from the project root with the virtual environment active and
 AIRFLOW_HOME set:
-    python db-benchmark/bench_one.py
+    python db-benchmark/time_single_query.py
 """
 import statistics
 import time

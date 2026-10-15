@@ -1,8 +1,8 @@
-"""Run every query in queries.py on TimescaleDB and ClickHouse and compare.
+"""Run every query in analytical_queries.py on TimescaleDB and ClickHouse and compare.
 
 Usage (project root, virtualenv active, AIRFLOW_HOME set):
-    python db-benchmark/run_benchmark.py baseline
-    python db-benchmark/run_benchmark.py timescale_indexed   # later rounds
+    python db-benchmark/run_query_benchmark.py baseline
+    python db-benchmark/run_query_benchmark.py timescale_indexed   # later rounds
 
 The argument is a label for this round. Results are written to
 db-benchmark/results/<label>.csv and printed as a table.
@@ -27,10 +27,10 @@ import clickhouse_connect
 import psycopg2
 from airflow.hooks.base import BaseHook
 
-from queries import QUERIES
+from analytical_queries import QUERIES
 
 RUNS = 7
-LABEL = sys.argv[1] if len(sys.argv) > 1 else "baseline"
+LABEL = sys.argv[1] if len(sys.argv) > 1 else "unlabelled_run"
 OUT = Path(__file__).resolve().parent / "results" / f"{LABEL}.csv"
 
 
