@@ -13,7 +13,7 @@ TABLES = ["dim_customer", "dim_product", "fact_payments",
           "fact_order_items", "fact_cart_items"]
 
 # airflow_home/dags/load_timescale.py -> project root is 3 levels above this file
-SCHEMA_SQL = Path(__file__).resolve().parents[3] / "db-benchmark" / "timescale_schema.sql"
+SCHEMA_SQL = Path(__file__).resolve().parents[3] / "db-benchmark" / "sql-scripts" / "01_timescale_schema.sql"
 
 
 def connect(conn_id):
