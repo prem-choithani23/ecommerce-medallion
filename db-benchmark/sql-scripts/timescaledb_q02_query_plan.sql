@@ -1,6 +1,6 @@
 -- Show how TimescaleDB executes Q02 (monthly revenue) in its current state.
 -- Run:
---   sudo docker exec -i bench_timescale psql -U postgres -d bench < db-benchmark/sql-scripts/explain_q02.sql > db-benchmark/results/explain_q02_columnstore.txt
+--   sudo docker exec -i bench_timescale psql -U postgres -d bench < db-benchmark/sql-scripts/timescaledb_q02_query_plan.sql > db-benchmark/results/round3_q02_query_plan_columnstore.txt
 
 -- Warm-up run (result discarded) so the plan below reflects a warm cache.
 \o /dev/null

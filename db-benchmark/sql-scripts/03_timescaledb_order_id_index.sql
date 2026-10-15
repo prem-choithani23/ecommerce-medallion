@@ -1,5 +1,5 @@
 -- Round 2 tuning for TimescaleDB (benchmark database "bench").
--- Run once:  sudo docker exec -i bench_timescale psql -U postgres -d bench < db-benchmark/sql-scripts/03_timescaledb_tuning.sql
+-- Run once:  sudo docker exec -i bench_timescale psql -U postgres -d bench < db-benchmark/sql-scripts/03_timescaledb_order_id_index.sql
 
 -- 1. Point lookups (Q10) filter on order_id. Without an index Postgres must
 --    scan the whole table; with one it can jump straight to the rows.
