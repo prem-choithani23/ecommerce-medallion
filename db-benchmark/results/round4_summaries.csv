@@ -1,0 +1,5 @@
+id,kind,name,pg_first,pg_warm,ch_first,ch_warm,winner,ratio,match,pg_rows,ch_rows,pg_hash,ch_hash,pg_error,ch_error
+Q14,time,Daily revenue by channel (from raw table),0.3444,0.2714,0.0269,0.0366,ClickHouse,7.4,MATCH,7294,7294,b8840cfee0,b8840cfee0,,
+Q14s,precomputed,Daily revenue by channel (from summary),0.0085,0.0072,0.0082,0.0109,TimescaleDB,1.5,MATCH,7294,7294,b8840cfee0,b8840cfee0,,
+Q15,time,Monthly revenue and units (from raw table),0.2661,0.2529,0.0126,0.0158,ClickHouse,16.0,MATCH,73,73,9184770e42,9184770e42,,
+Q15s,precomputed,Monthly revenue and units (from summary),0.0041,0.0019,0.003,0.0019,TimescaleDB,1.0,MATCH,73,73,9184770e42,9184770e42,,
