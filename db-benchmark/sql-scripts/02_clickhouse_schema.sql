@@ -1,3 +1,4 @@
+DROP VIEW IF EXISTS bench.daily_channel_revenue_mv;
 DROP TABLE IF EXISTS bench.fact_order_items;
 DROP TABLE IF EXISTS bench.fact_cart_items;
 DROP TABLE IF EXISTS bench.fact_payments;
