@@ -1,0 +1,523 @@
+                                                            QUERY PLAN                                                             
+-----------------------------------------------------------------------------------------------------------------------------------
+ GroupAggregate (actual rows=73 loops=1)
+   Group Key: ((date_trunc('month'::text, fact_order_items.order_datetime))::date)
+   ->  Result (actual rows=1232358 loops=1)
+         ->  Merge Append (actual rows=1232358 loops=1)
+               Sort Key: ((date_trunc('month'::text, fact_order_items.order_datetime))::date), fact_order_items.order_id
+               ->  Sort (actual rows=24613 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_301_chunk.order_datetime))::date), _hyper_7_301_chunk.order_id
+                     Sort Method: quicksort  Memory: 2147kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_301_chunk (actual rows=24613 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 1544
+                           ->  Seq Scan on _hyper_7_301_chunk_compressed (actual rows=29 loops=1)
+               ->  Sort (actual rows=137890 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_302_chunk.order_datetime))::date), _hyper_7_302_chunk.order_id
+                     Sort Method: external merge  Disk: 5320kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_302_chunk (actual rows=137890 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 8629
+                           ->  Seq Scan on _hyper_7_302_chunk_compressed (actual rows=149 loops=1)
+               ->  Sort (actual rows=32391 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_303_chunk.order_datetime))::date), _hyper_7_303_chunk.order_id
+                     Sort Method: quicksort  Memory: 2584kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_303_chunk (actual rows=32391 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 2134
+                           ->  Seq Scan on _hyper_7_303_chunk_compressed (actual rows=37 loops=1)
+               ->  Sort (actual rows=66978 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_304_chunk.order_datetime))::date), _hyper_7_304_chunk.order_id
+                     Sort Method: quicksort  Memory: 6827kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_304_chunk (actual rows=66978 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 4299
+                           ->  Seq Scan on _hyper_7_304_chunk_compressed (actual rows=73 loops=1)
+               ->  Sort (actual rows=202096 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_305_chunk.order_datetime))::date), _hyper_7_305_chunk.order_id
+                     Sort Method: external merge  Disk: 7792kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_305_chunk (actual rows=202096 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 13136
+                           ->  Seq Scan on _hyper_7_305_chunk_compressed (actual rows=217 loops=1)
+               ->  Sort (actual rows=100686 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_306_chunk.order_datetime))::date), _hyper_7_306_chunk.order_id
+                     Sort Method: quicksort  Memory: 8717kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_306_chunk (actual rows=100686 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 6320
+                           ->  Seq Scan on _hyper_7_306_chunk_compressed (actual rows=109 loops=1)
+               ->  Sort (actual rows=6120 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_307_chunk.order_datetime))::date), _hyper_7_307_chunk.order_id
+                     Sort Method: quicksort  Memory: 535kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_307_chunk (actual rows=6120 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 420
+                           ->  Seq Scan on _hyper_7_307_chunk_compressed (actual rows=9 loops=1)
+               ->  Sort (actual rows=40092 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_308_chunk.order_datetime))::date), _hyper_7_308_chunk.order_id
+                     Sort Method: quicksort  Memory: 3783kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_308_chunk (actual rows=40092 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 2507
+                           ->  Seq Scan on _hyper_7_308_chunk_compressed (actual rows=45 loops=1)
+               ->  Sort (actual rows=58911 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_309_chunk.order_datetime))::date), _hyper_7_309_chunk.order_id
+                     Sort Method: quicksort  Memory: 4838kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_309_chunk (actual rows=58911 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 3694
+                           ->  Seq Scan on _hyper_7_309_chunk_compressed (actual rows=65 loops=1)
+               ->  Sort (actual rows=29603 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_310_chunk.order_datetime))::date), _hyper_7_310_chunk.order_id
+                     Sort Method: quicksort  Memory: 2428kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_310_chunk (actual rows=29603 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 2004
+                           ->  Seq Scan on _hyper_7_310_chunk_compressed (actual rows=33 loops=1)
+               ->  Sort (actual rows=16193 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_311_chunk.order_datetime))::date), _hyper_7_311_chunk.order_id
+                     Sort Method: quicksort  Memory: 1292kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_311_chunk (actual rows=16193 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 918
+                           ->  Seq Scan on _hyper_7_311_chunk_compressed (actual rows=18 loops=1)
+               ->  Sort (actual rows=4879 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_312_chunk.order_datetime))::date), _hyper_7_312_chunk.order_id
+                     Sort Method: quicksort  Memory: 466kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_312_chunk (actual rows=4879 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 339
+                           ->  Seq Scan on _hyper_7_312_chunk_compressed (actual rows=7 loops=1)
+               ->  Sort (actual rows=50270 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_313_chunk.order_datetime))::date), _hyper_7_313_chunk.order_id
+                     Sort Method: quicksort  Memory: 4353kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_313_chunk (actual rows=50270 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 3257
+                           ->  Seq Scan on _hyper_7_313_chunk_compressed (actual rows=56 loops=1)
+               ->  Sort (actual rows=23064 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_314_chunk.order_datetime))::date), _hyper_7_314_chunk.order_id
+                     Sort Method: quicksort  Memory: 2062kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_314_chunk (actual rows=23064 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 1417
+                           ->  Seq Scan on _hyper_7_314_chunk_compressed (actual rows=25 loops=1)
+               ->  Sort (actual rows=9844 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_315_chunk.order_datetime))::date), _hyper_7_315_chunk.order_id
+                     Sort Method: quicksort  Memory: 936kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_315_chunk (actual rows=9844 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 608
+                           ->  Seq Scan on _hyper_7_315_chunk_compressed (actual rows=12 loops=1)
+               ->  Sort (actual rows=26504 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_316_chunk.order_datetime))::date), _hyper_7_316_chunk.order_id
+                     Sort Method: quicksort  Memory: 2253kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_316_chunk (actual rows=26504 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 1883
+                           ->  Seq Scan on _hyper_7_316_chunk_compressed (actual rows=30 loops=1)
+               ->  Sort (actual rows=4693 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_317_chunk.order_datetime))::date), _hyper_7_317_chunk.order_id
+                     Sort Method: quicksort  Memory: 455kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_317_chunk (actual rows=4693 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 322
+                           ->  Seq Scan on _hyper_7_317_chunk_compressed (actual rows=7 loops=1)
+               ->  Sort (actual rows=14556 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_318_chunk.order_datetime))::date), _hyper_7_318_chunk.order_id
+                     Sort Method: quicksort  Memory: 1200kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_318_chunk (actual rows=14556 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 802
+                           ->  Seq Scan on _hyper_7_318_chunk_compressed (actual rows=17 loops=1)
+               ->  Sort (actual rows=13345 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_319_chunk.order_datetime))::date), _hyper_7_319_chunk.order_id
+                     Sort Method: quicksort  Memory: 1132kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_319_chunk (actual rows=13345 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 873
+                           ->  Seq Scan on _hyper_7_319_chunk_compressed (actual rows=17 loops=1)
+               ->  Sort (actual rows=17764 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_320_chunk.order_datetime))::date), _hyper_7_320_chunk.order_id
+                     Sort Method: quicksort  Memory: 1764kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_320_chunk (actual rows=17764 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 1028
+                           ->  Seq Scan on _hyper_7_320_chunk_compressed (actual rows=21 loops=1)
+               ->  Sort (actual rows=82313 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_321_chunk.order_datetime))::date), _hyper_7_321_chunk.order_id
+                     Sort Method: quicksort  Memory: 7688kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_321_chunk (actual rows=82313 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 5194
+                           ->  Seq Scan on _hyper_7_321_chunk_compressed (actual rows=89 loops=1)
+               ->  Sort (actual rows=35654 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_322_chunk.order_datetime))::date), _hyper_7_322_chunk.order_id
+                     Sort Method: quicksort  Memory: 3535kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_322_chunk (actual rows=35654 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 2237
+                           ->  Seq Scan on _hyper_7_322_chunk_compressed (actual rows=40 loops=1)
+               ->  Sort (actual rows=44935 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_323_chunk.order_datetime))::date), _hyper_7_323_chunk.order_id
+                     Sort Method: quicksort  Memory: 4054kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_323_chunk (actual rows=44935 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 2808
+                           ->  Seq Scan on _hyper_7_323_chunk_compressed (actual rows=49 loops=1)
+               ->  Sort (actual rows=3132 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_324_chunk.order_datetime))::date), _hyper_7_324_chunk.order_id
+                     Sort Method: quicksort  Memory: 272kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_324_chunk (actual rows=3132 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 203
+                           ->  Seq Scan on _hyper_7_324_chunk_compressed (actual rows=6 loops=1)
+               ->  Sort (actual rows=11375 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_325_chunk.order_datetime))::date), _hyper_7_325_chunk.order_id
+                     Sort Method: quicksort  Memory: 1022kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_325_chunk (actual rows=11375 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 648
+                           ->  Seq Scan on _hyper_7_325_chunk_compressed (actual rows=14 loops=1)
+               ->  Sort (actual rows=8435 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_326_chunk.order_datetime))::date), _hyper_7_326_chunk.order_id
+                     Sort Method: quicksort  Memory: 857kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_326_chunk (actual rows=8435 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 493
+                           ->  Seq Scan on _hyper_7_326_chunk_compressed (actual rows=11 loops=1)
+               ->  Sort (actual rows=9058 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_327_chunk.order_datetime))::date), _hyper_7_327_chunk.order_id
+                     Sort Method: quicksort  Memory: 892kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_327_chunk (actual rows=9058 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 605
+                           ->  Seq Scan on _hyper_7_327_chunk_compressed (actual rows=12 loops=1)
+               ->  Sort (actual rows=468 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_328_chunk.order_datetime))::date), _hyper_7_328_chunk.order_id
+                     Sort Method: quicksort  Memory: 51kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_328_chunk (actual rows=468 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 24
+                           ->  Seq Scan on _hyper_7_328_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=15348 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_329_chunk.order_datetime))::date), _hyper_7_329_chunk.order_id
+                     Sort Method: quicksort  Memory: 1245kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_329_chunk (actual rows=15348 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 994
+                           ->  Seq Scan on _hyper_7_329_chunk_compressed (actual rows=18 loops=1)
+               ->  Sort (actual rows=2623 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_330_chunk.order_datetime))::date), _hyper_7_330_chunk.order_id
+                     Sort Method: quicksort  Memory: 244kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_330_chunk (actual rows=2623 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 135
+                           ->  Seq Scan on _hyper_7_330_chunk_compressed (actual rows=5 loops=1)
+               ->  Sort (actual rows=434 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_331_chunk.order_datetime))::date), _hyper_7_331_chunk.order_id
+                     Sort Method: quicksort  Memory: 49kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_331_chunk (actual rows=434 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 30
+                           ->  Seq Scan on _hyper_7_331_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=19221 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_332_chunk.order_datetime))::date), _hyper_7_332_chunk.order_id
+                     Sort Method: quicksort  Memory: 1846kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_332_chunk (actual rows=19221 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 1174
+                           ->  Seq Scan on _hyper_7_332_chunk_compressed (actual rows=22 loops=1)
+               ->  Sort (actual rows=11932 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_333_chunk.order_datetime))::date), _hyper_7_333_chunk.order_id
+                     Sort Method: quicksort  Memory: 1053kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_333_chunk (actual rows=11932 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 743
+                           ->  Seq Scan on _hyper_7_333_chunk_compressed (actual rows=15 loops=1)
+               ->  Sort (actual rows=808 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_334_chunk.order_datetime))::date), _hyper_7_334_chunk.order_id
+                     Sort Method: quicksort  Memory: 70kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_334_chunk (actual rows=808 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 28
+                           ->  Seq Scan on _hyper_7_334_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=6714 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_335_chunk.order_datetime))::date), _hyper_7_335_chunk.order_id
+                     Sort Method: quicksort  Memory: 569kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_335_chunk (actual rows=6714 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 427
+                           ->  Seq Scan on _hyper_7_335_chunk_compressed (actual rows=9 loops=1)
+               ->  Sort (actual rows=1345 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_336_chunk.order_datetime))::date), _hyper_7_336_chunk.order_id
+                     Sort Method: quicksort  Memory: 124kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_336_chunk (actual rows=1345 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 122
+                           ->  Seq Scan on _hyper_7_336_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=4004 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_337_chunk.order_datetime))::date), _hyper_7_337_chunk.order_id
+                     Sort Method: quicksort  Memory: 321kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_337_chunk (actual rows=4004 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 245
+                           ->  Seq Scan on _hyper_7_337_chunk_compressed (actual rows=6 loops=1)
+               ->  Sort (actual rows=4411 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_338_chunk.order_datetime))::date), _hyper_7_338_chunk.order_id
+                     Sort Method: quicksort  Memory: 440kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_338_chunk (actual rows=4411 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 271
+                           ->  Seq Scan on _hyper_7_338_chunk_compressed (actual rows=7 loops=1)
+               ->  Sort (actual rows=7434 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_339_chunk.order_datetime))::date), _hyper_7_339_chunk.order_id
+                     Sort Method: quicksort  Memory: 609kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_339_chunk (actual rows=7434 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 406
+                           ->  Seq Scan on _hyper_7_339_chunk_compressed (actual rows=9 loops=1)
+               ->  Sort (actual rows=20941 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_340_chunk.order_datetime))::date), _hyper_7_340_chunk.order_id
+                     Sort Method: quicksort  Memory: 1943kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_340_chunk (actual rows=20941 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 1342
+                           ->  Seq Scan on _hyper_7_340_chunk_compressed (actual rows=24 loops=1)
+               ->  Sort (actual rows=5555 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_341_chunk.order_datetime))::date), _hyper_7_341_chunk.order_id
+                     Sort Method: quicksort  Memory: 504kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_341_chunk (actual rows=5555 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 359
+                           ->  Seq Scan on _hyper_7_341_chunk_compressed (actual rows=7 loops=1)
+               ->  Sort (actual rows=10738 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_342_chunk.order_datetime))::date), _hyper_7_342_chunk.order_id
+                     Sort Method: quicksort  Memory: 986kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_342_chunk (actual rows=10738 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 611
+                           ->  Seq Scan on _hyper_7_342_chunk_compressed (actual rows=13 loops=1)
+               ->  Sort (actual rows=1138 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_343_chunk.order_datetime))::date), _hyper_7_343_chunk.order_id
+                     Sort Method: quicksort  Memory: 112kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_343_chunk (actual rows=1138 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 41
+                           ->  Seq Scan on _hyper_7_343_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=3337 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_344_chunk.order_datetime))::date), _hyper_7_344_chunk.order_id
+                     Sort Method: quicksort  Memory: 284kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_344_chunk (actual rows=3337 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 259
+                           ->  Seq Scan on _hyper_7_344_chunk_compressed (actual rows=6 loops=1)
+               ->  Sort (actual rows=6678 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_345_chunk.order_datetime))::date), _hyper_7_345_chunk.order_id
+                     Sort Method: quicksort  Memory: 567kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_345_chunk (actual rows=6678 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 368
+                           ->  Seq Scan on _hyper_7_345_chunk_compressed (actual rows=9 loops=1)
+               ->  Sort (actual rows=1666 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_346_chunk.order_datetime))::date), _hyper_7_346_chunk.order_id
+                     Sort Method: quicksort  Memory: 142kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_346_chunk (actual rows=1666 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 129
+                           ->  Seq Scan on _hyper_7_346_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=1251 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_347_chunk.order_datetime))::date), _hyper_7_347_chunk.order_id
+                     Sort Method: quicksort  Memory: 119kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_347_chunk (actual rows=1251 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 84
+                           ->  Seq Scan on _hyper_7_347_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=2078 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_348_chunk.order_datetime))::date), _hyper_7_348_chunk.order_id
+                     Sort Method: quicksort  Memory: 213kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_348_chunk (actual rows=2078 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 139
+                           ->  Seq Scan on _hyper_7_348_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=205 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_349_chunk.order_datetime))::date), _hyper_7_349_chunk.order_id
+                     Sort Method: quicksort  Memory: 36kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_349_chunk (actual rows=205 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 3
+                           ->  Seq Scan on _hyper_7_349_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=3908 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_350_chunk.order_datetime))::date), _hyper_7_350_chunk.order_id
+                     Sort Method: quicksort  Memory: 315kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_350_chunk (actual rows=3908 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 242
+                           ->  Seq Scan on _hyper_7_350_chunk_compressed (actual rows=6 loops=1)
+               ->  Sort (actual rows=2514 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_351_chunk.order_datetime))::date), _hyper_7_351_chunk.order_id
+                     Sort Method: quicksort  Memory: 237kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_351_chunk (actual rows=2514 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 117
+                           ->  Seq Scan on _hyper_7_351_chunk_compressed (actual rows=5 loops=1)
+               ->  Sort (actual rows=1767 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_352_chunk.order_datetime))::date), _hyper_7_352_chunk.order_id
+                     Sort Method: quicksort  Memory: 147kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_352_chunk (actual rows=1767 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 142
+                           ->  Seq Scan on _hyper_7_352_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=621 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_353_chunk.order_datetime))::date), _hyper_7_353_chunk.order_id
+                     Sort Method: quicksort  Memory: 59kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_353_chunk (actual rows=621 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 31
+                           ->  Seq Scan on _hyper_7_353_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=1503 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_354_chunk.order_datetime))::date), _hyper_7_354_chunk.order_id
+                     Sort Method: quicksort  Memory: 133kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_354_chunk (actual rows=1503 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 91
+                           ->  Seq Scan on _hyper_7_354_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=2737 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_355_chunk.order_datetime))::date), _hyper_7_355_chunk.order_id
+                     Sort Method: quicksort  Memory: 250kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_355_chunk (actual rows=2737 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 209
+                           ->  Seq Scan on _hyper_7_355_chunk_compressed (actual rows=6 loops=1)
+               ->  Sort (actual rows=983 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_356_chunk.order_datetime))::date), _hyper_7_356_chunk.order_id
+                     Sort Method: quicksort  Memory: 80kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_356_chunk (actual rows=983 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 77
+                           ->  Seq Scan on _hyper_7_356_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=2139 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_357_chunk.order_datetime))::date), _hyper_7_357_chunk.order_id
+                     Sort Method: quicksort  Memory: 216kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_357_chunk (actual rows=2139 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 134
+                           ->  Seq Scan on _hyper_7_357_chunk_compressed (actual rows=5 loops=1)
+               ->  Sort (actual rows=7815 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_358_chunk.order_datetime))::date), _hyper_7_358_chunk.order_id
+                     Sort Method: quicksort  Memory: 630kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_358_chunk (actual rows=7815 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 517
+                           ->  Seq Scan on _hyper_7_358_chunk_compressed (actual rows=10 loops=1)
+               ->  Sort (actual rows=1290 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_359_chunk.order_datetime))::date), _hyper_7_359_chunk.order_id
+                     Sort Method: quicksort  Memory: 121kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_359_chunk (actual rows=1290 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 66
+                           ->  Seq Scan on _hyper_7_359_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=287 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_360_chunk.order_datetime))::date), _hyper_7_360_chunk.order_id
+                     Sort Method: quicksort  Memory: 41kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_360_chunk (actual rows=287 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 22
+                           ->  Seq Scan on _hyper_7_360_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=779 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_361_chunk.order_datetime))::date), _hyper_7_361_chunk.order_id
+                     Sort Method: quicksort  Memory: 68kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_361_chunk (actual rows=779 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 29
+                           ->  Seq Scan on _hyper_7_361_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=320 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_362_chunk.order_datetime))::date), _hyper_7_362_chunk.order_id
+                     Sort Method: quicksort  Memory: 42kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_362_chunk (actual rows=320 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 9
+                           ->  Seq Scan on _hyper_7_362_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=638 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_363_chunk.order_datetime))::date), _hyper_7_363_chunk.order_id
+                     Sort Method: quicksort  Memory: 60kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_363_chunk (actual rows=638 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 49
+                           ->  Seq Scan on _hyper_7_363_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=94 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_364_chunk.order_datetime))::date), _hyper_7_364_chunk.order_id
+                     Sort Method: quicksort  Memory: 30kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_364_chunk (actual rows=94 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 8
+                           ->  Seq Scan on _hyper_7_364_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=526 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_365_chunk.order_datetime))::date), _hyper_7_365_chunk.order_id
+                     Sort Method: quicksort  Memory: 54kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_365_chunk (actual rows=526 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 37
+                           ->  Seq Scan on _hyper_7_365_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=107 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_366_chunk.order_datetime))::date), _hyper_7_366_chunk.order_id
+                     Sort Method: quicksort  Memory: 30kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_366_chunk (actual rows=107 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 19
+                           ->  Seq Scan on _hyper_7_366_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=127 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_367_chunk.order_datetime))::date), _hyper_7_367_chunk.order_id
+                     Sort Method: quicksort  Memory: 32kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_367_chunk (actual rows=127 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           ->  Seq Scan on _hyper_7_367_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=51 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_368_chunk.order_datetime))::date), _hyper_7_368_chunk.order_id
+                     Sort Method: quicksort  Memory: 27kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_368_chunk (actual rows=51 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           ->  Seq Scan on _hyper_7_368_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=266 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_369_chunk.order_datetime))::date), _hyper_7_369_chunk.order_id
+                     Sort Method: quicksort  Memory: 39kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_369_chunk (actual rows=266 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 15
+                           ->  Seq Scan on _hyper_7_369_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=56 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_370_chunk.order_datetime))::date), _hyper_7_370_chunk.order_id
+                     Sort Method: quicksort  Memory: 28kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_370_chunk (actual rows=56 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           ->  Seq Scan on _hyper_7_370_chunk_compressed (actual rows=4 loops=1)
+               ->  Sort (actual rows=73 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_371_chunk.order_datetime))::date), _hyper_7_371_chunk.order_id
+                     Sort Method: quicksort  Memory: 29kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_371_chunk (actual rows=73 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           ->  Seq Scan on _hyper_7_371_chunk_compressed (actual rows=3 loops=1)
+               ->  Sort (actual rows=1 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_372_chunk.order_datetime))::date), _hyper_7_372_chunk.order_id
+                     Sort Method: quicksort  Memory: 25kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_372_chunk (actual rows=1 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           ->  Seq Scan on _hyper_7_372_chunk_compressed (actual rows=1 loops=1)
+               ->  Sort (actual rows=21 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_373_chunk.order_datetime))::date), _hyper_7_373_chunk.order_id
+                     Sort Method: quicksort  Memory: 26kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_373_chunk (actual rows=21 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           ->  Seq Scan on _hyper_7_373_chunk_compressed (actual rows=3 loops=1)
+               ->  Sort (actual rows=12 loops=1)
+                     Sort Key: ((date_trunc('month'::text, _hyper_7_374_chunk.order_datetime))::date), _hyper_7_374_chunk.order_id
+                     Sort Method: quicksort  Memory: 25kB
+                     ->  Custom Scan (ColumnarScan) on _hyper_7_374_chunk (actual rows=12 loops=1)
+                           Filter: ((order_status)::text <> ALL ('{CANCELLED,RETURNED}'::text[]))
+                           Rows Removed by Filter: 1
+                           ->  Seq Scan on _hyper_7_374_chunk_compressed (actual rows=3 loops=1)
+ Planning Time: 4.077 ms
+ Execution Time: 836.335 ms
+(519 rows)
+
