@@ -1,0 +1,171 @@
+/home/prem-choithani/Desktop/projects/ecommerce-medallion/.venv/lib/python3.12/site-packages/airflow/configuration.py:859 FutureWarning: section/key [core/sql_alchemy_conn] has been deprecated, you should use[database/sql_alchemy_conn] instead. Please update your `conf.get*` call to use the new name
+/home/prem-choithani/Desktop/projects/ecommerce-medallion/.venv/lib/python3.12/site-packages/airflow/cli/commands/dag_command.py:48 UserWarning: Could not import graphviz. Rendering graph to the graphical format will not be possible.
+[2026-10-13T00:56:07.190+0530] {dagbag.py:588} INFO - Filling up the DagBag from /home/prem-choithani/Desktop/projects/ecommerce-medallion/airflow_home/dags
+[2026-10-13T00:56:07.264+0530] {example_kubernetes_executor.py:39} WARNING - The example_kubernetes_executor example DAG requires the kubernetes provider. Please install it with: pip install apache-airflow[cncf.kubernetes]
+[2026-10-13T00:56:07.296+0530] {example_local_kubernetes_executor.py:40} WARNING - Could not import DAGs in example_local_kubernetes_executor.py
+Traceback (most recent call last):
+  File "/home/prem-choithani/Desktop/projects/ecommerce-medallion/.venv/lib/python3.12/site-packages/airflow/example_dags/example_local_kubernetes_executor.py", line 38, in <module>
+    from kubernetes.client import models as k8s
+ModuleNotFoundError: No module named 'kubernetes'
+[2026-10-13T00:56:07.296+0530] {example_local_kubernetes_executor.py:41} WARNING - Install Kubernetes dependencies with: pip install apache-airflow[cncf.kubernetes]
+[2026-10-13T00:56:07.300+0530] {tutorial_taskflow_api_virtualenv.py:29} WARNING - The tutorial_taskflow_api_virtualenv example DAG requires virtualenv, please install it.
+[2026-10-13T00:56:07.309+0530] {example_python_decorator.py:80} WARNING - The virtalenv_python example task requires virtualenv, please install it.
+[2026-10-13T00:56:07.310+0530] {workday.py:41} WARNING - Could not import pandas. Holidays will not be considered.
+[2026-10-13T00:56:07.321+0530] {example_python_operator.py:93} WARNING - The virtalenv_python example task requires virtualenv, please install it.
+[2026-10-13T00:56:07.343+0530] {workday.py:41} WARNING - Could not import pandas. Holidays will not be considered.
+[2026-10-13T00:56:07.350+0530] {dag.py:4435} INFO - dagrun id: load_clickhouse
+[2026-10-13T00:56:07.355+0530] {dag.py:4451} INFO - created dagrun <DagRun load_clickhouse @ 2026-10-12 19:26:07.190563+00:00: manual__2026-10-12T19:26:07.190563+00:00, state:running, queued_at: None. externally triggered: False>
+[2026-10-13T00:56:07.372+0530] {dag.py:4396} INFO - [DAG TEST] starting task_id=setup_schema map_index=-1
+[2026-10-13T00:56:07.372+0530] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: load_clickhouse.setup_schema manual__2026-10-12T19:26:07.190563+00:00 [scheduled]>
+[2026-10-13T00:56:07.379+0530] {workday.py:41} WARNING - Could not import pandas. Holidays will not be considered.
+[2026-10-13 00:56:07,435] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='load_clickhouse' AIRFLOW_CTX_TASK_ID='setup_schema' AIRFLOW_CTX_EXECUTION_DATE='2026-10-12T19:26:07.190563+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-12T19:26:07.190563+00:00'
+[2026-10-13T00:56:07.435+0530] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='load_clickhouse' AIRFLOW_CTX_TASK_ID='setup_schema' AIRFLOW_CTX_EXECUTION_DATE='2026-10-12T19:26:07.190563+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-12T19:26:07.190563+00:00'
+Task instance is in running state
+ Previous state of the Task instance: queued
+Current task name:setup_schema state:scheduled start_date:None
+Dag name:load_clickhouse and current dag run status:running
+[2026-10-13T00:56:07.436+0530] {taskinstance.py:731} INFO - ::endgroup::
+[2026-10-13T00:56:07.438+0530] {base.py:84} INFO - Retrieving connection 'clickhouse_bench'
+[2026-10-13 00:56:07,469] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-13T00:56:07.469+0530] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-13T00:56:07.472+0530] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-10-13T00:56:07.472+0530] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=load_clickhouse, task_id=setup_schema, run_id=manual__2026-10-12T19:26:07.190563+00:00, execution_date=20261012T192607, start_date=, end_date=20261012T192607
+Task instance in success state
+ Previous state of the Task instance: running
+Dag name:load_clickhouse queued_at:None
+Task hostname:prem operator:_PythonDecoratedOperator
+[2026-10-13T00:56:07.480+0530] {dag.py:4410} INFO - [DAG TEST] end task task_id=setup_schema map_index=-1
+[2026-10-13T00:56:07.492+0530] {dag.py:4396} INFO - [DAG TEST] starting task_id=load_dim_customer map_index=-1
+[2026-10-13T00:56:07.492+0530] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: load_clickhouse.load_dim_customer manual__2026-10-12T19:26:07.190563+00:00 [scheduled]>
+[2026-10-13 00:56:07,507] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='load_clickhouse' AIRFLOW_CTX_TASK_ID='load_dim_customer' AIRFLOW_CTX_EXECUTION_DATE='2026-10-12T19:26:07.190563+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-12T19:26:07.190563+00:00'
+[2026-10-13T00:56:07.507+0530] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='load_clickhouse' AIRFLOW_CTX_TASK_ID='load_dim_customer' AIRFLOW_CTX_EXECUTION_DATE='2026-10-12T19:26:07.190563+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-12T19:26:07.190563+00:00'
+Task instance is in running state
+ Previous state of the Task instance: queued
+Current task name:load_dim_customer state:scheduled start_date:None
+Dag name:load_clickhouse and current dag run status:running
+[2026-10-13T00:56:07.508+0530] {taskinstance.py:731} INFO - ::endgroup::
+[2026-10-13T00:56:07.509+0530] {base.py:84} INFO - Retrieving connection 'clickhouse_bench'
+[2026-10-13T00:56:07.519+0530] {base.py:84} INFO - Retrieving connection 'postgres_warehouse'
+dim_customer: 200000 rows loaded in 0.94s
+[2026-10-13 00:56:08,555] {python.py:240} INFO - Done. Returned value was: {'table': 'dim_customer', 'rows': 200000, 'seconds': 0.94}
+[2026-10-13T00:56:08.555+0530] {python.py:240} INFO - Done. Returned value was: {'table': 'dim_customer', 'rows': 200000, 'seconds': 0.94}
+[2026-10-13T00:56:08.563+0530] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-10-13T00:56:08.563+0530] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=load_clickhouse, task_id=load_dim_customer, run_id=manual__2026-10-12T19:26:07.190563+00:00, execution_date=20261012T192607, start_date=, end_date=20261012T192608
+Task instance in success state
+ Previous state of the Task instance: running
+Dag name:load_clickhouse queued_at:None
+Task hostname:prem operator:_PythonDecoratedOperator
+[2026-10-13T00:56:08.566+0530] {dag.py:4410} INFO - [DAG TEST] end task task_id=load_dim_customer map_index=-1
+[2026-10-13T00:56:08.590+0530] {dag.py:4396} INFO - [DAG TEST] starting task_id=load_dim_product map_index=-1
+[2026-10-13T00:56:08.590+0530] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: load_clickhouse.load_dim_product manual__2026-10-12T19:26:07.190563+00:00 [scheduled]>
+[2026-10-13 00:56:08,601] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='load_clickhouse' AIRFLOW_CTX_TASK_ID='load_dim_product' AIRFLOW_CTX_EXECUTION_DATE='2026-10-12T19:26:07.190563+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-12T19:26:07.190563+00:00'
+[2026-10-13T00:56:08.601+0530] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='load_clickhouse' AIRFLOW_CTX_TASK_ID='load_dim_product' AIRFLOW_CTX_EXECUTION_DATE='2026-10-12T19:26:07.190563+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-12T19:26:07.190563+00:00'
+Task instance is in running state
+ Previous state of the Task instance: queued
+Current task name:load_dim_product state:scheduled start_date:None
+Dag name:load_clickhouse and current dag run status:running
+[2026-10-13T00:56:08.601+0530] {taskinstance.py:731} INFO - ::endgroup::
+[2026-10-13T00:56:08.602+0530] {base.py:84} INFO - Retrieving connection 'clickhouse_bench'
+[2026-10-13T00:56:08.612+0530] {base.py:84} INFO - Retrieving connection 'postgres_warehouse'
+dim_product: 319 rows loaded in 0.07s
+[2026-10-13 00:56:08,690] {python.py:240} INFO - Done. Returned value was: {'table': 'dim_product', 'rows': 319, 'seconds': 0.07}
+[2026-10-13T00:56:08.690+0530] {python.py:240} INFO - Done. Returned value was: {'table': 'dim_product', 'rows': 319, 'seconds': 0.07}
+[2026-10-13T00:56:08.701+0530] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-10-13T00:56:08.701+0530] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=load_clickhouse, task_id=load_dim_product, run_id=manual__2026-10-12T19:26:07.190563+00:00, execution_date=20261012T192607, start_date=, end_date=20261012T192608
+Task instance in success state
+ Previous state of the Task instance: running
+Dag name:load_clickhouse queued_at:None
+Task hostname:prem operator:_PythonDecoratedOperator
+[2026-10-13T00:56:08.707+0530] {dag.py:4410} INFO - [DAG TEST] end task task_id=load_dim_product map_index=-1
+[2026-10-13T00:56:08.713+0530] {dag.py:4396} INFO - [DAG TEST] starting task_id=load_fact_payments map_index=-1
+[2026-10-13T00:56:08.713+0530] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: load_clickhouse.load_fact_payments manual__2026-10-12T19:26:07.190563+00:00 [scheduled]>
+[2026-10-13 00:56:08,725] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='load_clickhouse' AIRFLOW_CTX_TASK_ID='load_fact_payments' AIRFLOW_CTX_EXECUTION_DATE='2026-10-12T19:26:07.190563+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-12T19:26:07.190563+00:00'
+[2026-10-13T00:56:08.725+0530] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='load_clickhouse' AIRFLOW_CTX_TASK_ID='load_fact_payments' AIRFLOW_CTX_EXECUTION_DATE='2026-10-12T19:26:07.190563+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-12T19:26:07.190563+00:00'
+Task instance is in running state
+ Previous state of the Task instance: queued
+Current task name:load_fact_payments state:scheduled start_date:None
+Dag name:load_clickhouse and current dag run status:running
+[2026-10-13T00:56:08.725+0530] {taskinstance.py:731} INFO - ::endgroup::
+[2026-10-13T00:56:08.726+0530] {base.py:84} INFO - Retrieving connection 'clickhouse_bench'
+[2026-10-13T00:56:08.736+0530] {base.py:84} INFO - Retrieving connection 'postgres_warehouse'
+fact_payments: 439248 rows loaded in 1.6s
+[2026-10-13 00:56:10,427] {python.py:240} INFO - Done. Returned value was: {'table': 'fact_payments', 'rows': 439248, 'seconds': 1.6}
+[2026-10-13T00:56:10.427+0530] {python.py:240} INFO - Done. Returned value was: {'table': 'fact_payments', 'rows': 439248, 'seconds': 1.6}
+[2026-10-13T00:56:10.440+0530] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-10-13T00:56:10.440+0530] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=load_clickhouse, task_id=load_fact_payments, run_id=manual__2026-10-12T19:26:07.190563+00:00, execution_date=20261012T192607, start_date=, end_date=20261012T192610
+Task instance in success state
+ Previous state of the Task instance: running
+Dag name:load_clickhouse queued_at:None
+Task hostname:prem operator:_PythonDecoratedOperator
+[2026-10-13T00:56:10.444+0530] {dag.py:4410} INFO - [DAG TEST] end task task_id=load_fact_payments map_index=-1
+[2026-10-13T00:56:10.450+0530] {dag.py:4396} INFO - [DAG TEST] starting task_id=load_fact_order_items map_index=-1
+[2026-10-13T00:56:10.450+0530] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: load_clickhouse.load_fact_order_items manual__2026-10-12T19:26:07.190563+00:00 [scheduled]>
+[2026-10-13 00:56:10,483] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='load_clickhouse' AIRFLOW_CTX_TASK_ID='load_fact_order_items' AIRFLOW_CTX_EXECUTION_DATE='2026-10-12T19:26:07.190563+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-12T19:26:07.190563+00:00'
+[2026-10-13T00:56:10.483+0530] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='load_clickhouse' AIRFLOW_CTX_TASK_ID='load_fact_order_items' AIRFLOW_CTX_EXECUTION_DATE='2026-10-12T19:26:07.190563+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-12T19:26:07.190563+00:00'
+Task instance is in running state
+ Previous state of the Task instance: queued
+Current task name:load_fact_order_items state:scheduled start_date:None
+Dag name:load_clickhouse and current dag run status:running
+[2026-10-13T00:56:10.483+0530] {taskinstance.py:731} INFO - ::endgroup::
+[2026-10-13T00:56:10.485+0530] {base.py:84} INFO - Retrieving connection 'clickhouse_bench'
+[2026-10-13T00:56:10.499+0530] {base.py:84} INFO - Retrieving connection 'postgres_warehouse'
+fact_order_items: 1310429 rows loaded in 12.24s
+[2026-10-13 00:56:23,435] {python.py:240} INFO - Done. Returned value was: {'table': 'fact_order_items', 'rows': 1310429, 'seconds': 12.24}
+[2026-10-13T00:56:23.435+0530] {python.py:240} INFO - Done. Returned value was: {'table': 'fact_order_items', 'rows': 1310429, 'seconds': 12.24}
+[2026-10-13T00:56:23.460+0530] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-10-13T00:56:23.461+0530] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=load_clickhouse, task_id=load_fact_order_items, run_id=manual__2026-10-12T19:26:07.190563+00:00, execution_date=20261012T192607, start_date=, end_date=20261012T192623
+Task instance in success state
+ Previous state of the Task instance: running
+Dag name:load_clickhouse queued_at:None
+Task hostname:prem operator:_PythonDecoratedOperator
+[2026-10-13T00:56:23.466+0530] {dag.py:4410} INFO - [DAG TEST] end task task_id=load_fact_order_items map_index=-1
+[2026-10-13T00:56:23.486+0530] {dag.py:4396} INFO - [DAG TEST] starting task_id=load_fact_cart_items map_index=-1
+[2026-10-13T00:56:23.486+0530] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: load_clickhouse.load_fact_cart_items manual__2026-10-12T19:26:07.190563+00:00 [scheduled]>
+[2026-10-13 00:56:23,545] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='load_clickhouse' AIRFLOW_CTX_TASK_ID='load_fact_cart_items' AIRFLOW_CTX_EXECUTION_DATE='2026-10-12T19:26:07.190563+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-12T19:26:07.190563+00:00'
+[2026-10-13T00:56:23.545+0530] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='load_clickhouse' AIRFLOW_CTX_TASK_ID='load_fact_cart_items' AIRFLOW_CTX_EXECUTION_DATE='2026-10-12T19:26:07.190563+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-12T19:26:07.190563+00:00'
+Task instance is in running state
+ Previous state of the Task instance: queued
+Current task name:load_fact_cart_items state:scheduled start_date:None
+Dag name:load_clickhouse and current dag run status:running
+[2026-10-13T00:56:23.546+0530] {taskinstance.py:731} INFO - ::endgroup::
+[2026-10-13T00:56:23.547+0530] {base.py:84} INFO - Retrieving connection 'clickhouse_bench'
+[2026-10-13T00:56:23.556+0530] {base.py:84} INFO - Retrieving connection 'postgres_warehouse'
+fact_cart_items: 5963986 rows loaded in 52.97s
+[2026-10-13 00:57:18,658] {python.py:240} INFO - Done. Returned value was: {'table': 'fact_cart_items', 'rows': 5963986, 'seconds': 52.97}
+[2026-10-13T00:57:18.658+0530] {python.py:240} INFO - Done. Returned value was: {'table': 'fact_cart_items', 'rows': 5963986, 'seconds': 52.97}
+[2026-10-13T00:57:18.922+0530] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-10-13T00:57:18.923+0530] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=load_clickhouse, task_id=load_fact_cart_items, run_id=manual__2026-10-12T19:26:07.190563+00:00, execution_date=20261012T192607, start_date=, end_date=20261012T192718
+Task instance in success state
+ Previous state of the Task instance: running
+Dag name:load_clickhouse queued_at:None
+Task hostname:prem operator:_PythonDecoratedOperator
+[2026-10-13T00:57:19.300+0530] {dag.py:4410} INFO - [DAG TEST] end task task_id=load_fact_cart_items map_index=-1
+[2026-10-13T00:57:19.557+0530] {dag.py:4396} INFO - [DAG TEST] starting task_id=verify map_index=-1
+[2026-10-13T00:57:19.558+0530] {dag.py:4399} INFO - [DAG TEST] running task <TaskInstance: load_clickhouse.verify manual__2026-10-12T19:26:07.190563+00:00 [scheduled]>
+[2026-10-13 00:57:19,968] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='load_clickhouse' AIRFLOW_CTX_TASK_ID='verify' AIRFLOW_CTX_EXECUTION_DATE='2026-10-12T19:26:07.190563+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-12T19:26:07.190563+00:00'
+[2026-10-13T00:57:19.968+0530] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='load_clickhouse' AIRFLOW_CTX_TASK_ID='verify' AIRFLOW_CTX_EXECUTION_DATE='2026-10-12T19:26:07.190563+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-12T19:26:07.190563+00:00'
+Task instance is in running state
+ Previous state of the Task instance: queued
+Current task name:verify state:scheduled start_date:None
+Dag name:load_clickhouse and current dag run status:running
+[2026-10-13T00:57:19.969+0530] {taskinstance.py:731} INFO - ::endgroup::
+[2026-10-13T00:57:19.972+0530] {base.py:84} INFO - Retrieving connection 'clickhouse_bench'
+[2026-10-13T00:57:19.982+0530] {base.py:84} INFO - Retrieving connection 'postgres_warehouse'
+dim_customer: silver=200000 clickhouse=200000 load=0.94s OK
+dim_product: silver=319 clickhouse=319 load=0.07s OK
+fact_payments: silver=439248 clickhouse=439248 load=1.6s OK
+fact_order_items: silver=1310429 clickhouse=1310429 load=12.24s OK max(order_datetime): silver=2026-02-28 23:59:57 clickhouse=2026-02-28 23:59:57 OK
+fact_cart_items: silver=5963986 clickhouse=5963986 load=52.97s OK max(cart_created_at): silver=2026-02-28 23:59:47 clickhouse=2026-02-28 23:59:47 OK
+[2026-10-13 00:57:20,353] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-13T00:57:20.353+0530] {python.py:240} INFO - Done. Returned value was: None
+[2026-10-13T00:57:20.460+0530] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-10-13T00:57:20.461+0530] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=load_clickhouse, task_id=verify, run_id=manual__2026-10-12T19:26:07.190563+00:00, execution_date=20261012T192607, start_date=, end_date=20261012T192720
+Task instance in success state
+ Previous state of the Task instance: running
+Dag name:load_clickhouse queued_at:None
+Task hostname:prem operator:_PythonDecoratedOperator
+[2026-10-13T00:57:20.607+0530] {dag.py:4410} INFO - [DAG TEST] end task task_id=verify map_index=-1
+[2026-10-13T00:57:20.612+0530] {dagrun.py:854} INFO - Marking run <DagRun load_clickhouse @ 2026-10-12 19:26:07.190563+00:00: manual__2026-10-12T19:26:07.190563+00:00, state:running, queued_at: None. externally triggered: False> successful
+Dag run in success state
+Dag run start:2026-10-12 19:26:07.190563+00:00 end:2026-10-12 19:27:20.612813+00:00
+[2026-10-13T00:57:20.612+0530] {dagrun.py:905} INFO - DagRun Finished: dag_id=load_clickhouse, execution_date=2026-10-12 19:26:07.190563+00:00, run_id=manual__2026-10-12T19:26:07.190563+00:00, run_start_date=2026-10-12 19:26:07.190563+00:00, run_end_date=2026-10-12 19:27:20.612813+00:00, run_duration=73.42225, state=success, external_trigger=False, run_type=manual, data_interval_start=2026-10-12 19:26:07.190563+00:00, data_interval_end=2026-10-12 19:26:07.190563+00:00, dag_hash=None
